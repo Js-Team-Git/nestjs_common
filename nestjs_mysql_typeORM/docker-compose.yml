@@ -1,0 +1,21 @@
+  version: '3.8'
+    services:
+      backend:
+        build: .
+        ports:
+         - 8000:3000
+        volumes: 
+         - .:/app
+        depends_on:
+         - db
+
+     db:
+      image: mysql:8
+      restart: always
+      environment:
+        MYSQL_DATABASE: admin
+        MYSQL_USER: root
+        MYSQL_PASSWORD: root123
+        MYSQL_ROOT_PASSWORD: root123
+        ports:
+         - 33066:4205
